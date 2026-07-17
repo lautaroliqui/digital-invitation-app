@@ -1,0 +1,369 @@
+/* VARIABLES Y RESETEO */
+:root {
+    --bg-color: #fdfaf6;
+    --text-dark: #4a3b32;
+    --accent-green: #7d8869;
+    --accent-brown: #a87b51;
+    --card-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BASE Y LAYOUT */
+body {
+    background: radial-gradient(circle at center, #fdfaf6 0%, #e8decb 100%);
+    color: var(--text-dark);
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden; 
+}
+
+#leaves-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.invitation-container {
+    position: relative;
+    z-index: 1; 
+    max-width: 500px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+}
+
+.hero-section {
+    margin-top: 20px;
+}
+
+.music-player-container {
+    background: var(--card-bg);
+    border: 1px solid rgba(168, 123, 81, 0.3);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* TIPOGRAFÍA */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--text-dark);
+    line-height: 1;
+    margin: 10px 0;
+}
+
+.pre-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--accent-brown);
+}
+
+.name-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--text-dark);
+}
+
+.floral-divider {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: var(--accent-green);
+    opacity: 0.8;
+}
+
+.track-info {
+    font-size: 0.9rem;
+    color: var(--accent-green);
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 1px;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.rsvp-text {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* COMPONENTES: TARJETAS Y CAJAS */
+.info-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(168, 123, 81, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.info-card h3, .countdown-section h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-green);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.info-card p {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.when-card, .where-card {
+    padding: 30px 20px; 
+}
+
+.datetime-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.datetime-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+    border: 2px solid rgba(168, 123, 81, 0.2);
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.grid-divider {
+    width: 2px;
+    height: 60px;
+    background-color: rgba(125, 136, 105, 0.3);
+}
+
+.datetime-box .label, .location-box .label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--accent-green);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.datetime-box .value, .location-box .value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent-brown);
+    line-height: 1.1;
+}
+
+.location-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 15px;
+    border: 2px solid rgba(168, 123, 81, 0.2);
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.location-box .value {
+    font-size: 1.3rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.timer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.time-box {
+    background: var(--card-bg);
+    padding: 15px 5px;
+    border-radius: 8px;
+    border: 1px solid rgba(125, 136, 105, 0.3);
+}
+
+.time-box span {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-brown);
+}
+
+.time-box p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--accent-green);
+    margin-top: 5px;
+}
+
+/* BOTONES */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--accent-brown);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: var(--accent-green);
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    opacity: 0.8;
+}
+
+.btn-rsvp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: var(--accent-green);
+    color: white;
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.15rem;
+    margin-top: 20px;
+    box-shadow: 0 8px 20px rgba(125, 136, 105, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    animation: pulse-attention 2.5s infinite; 
+}
+
+.btn-rsvp:hover {
+    background-color: #6a7359;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(125, 136, 105, 0.6);
+}
+
+.ctrl-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ctrl-btn:hover {
+    color: var(--accent-brown);
+    transform: scale(1.1);
+}
+
+.main-play-btn {
+    background-color: var(--accent-brown);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(168, 123, 81, 0.4);
+}
+
+.main-play-btn:hover {
+    background-color: var(--text-dark);
+    color: white;
+}
+
+/* ÍCONOS */
+.wa-icon {
+    width: 26px;
+    height: 26px;
+}
+
+.custom-icon {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    filter: invert(49%) sepia(19%) saturate(1008%) hue-rotate(345deg) brightness(92%) contrast(85%);
+}
+
+.ctrl-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.main-play-btn .ctrl-icon {
+    width: 28px;
+    height: 28px;
+    margin-left: 3px; 
+}
+
+/* ANIMACIONES */
+.leaf {
+    position: absolute;
+    top: -10%;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    animation-name: fall, sway;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: normal, alternate;
+}
+
+@keyframes fall {
+    0% { top: -10%; }
+    100% { top: 110%; }
+}
+
+@keyframes sway {
+    0% { transform: translateX(0px) rotate(0deg); }
+    100% { transform: translateX(25px) rotate(45deg); }
+}
+
+@keyframes pulse-attention {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}

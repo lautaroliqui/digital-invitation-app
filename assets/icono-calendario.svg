@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" fill="none" stroke="#a87b51" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Anillas superiores del calendario (trazos curvos irregulares) -->
+    <path d="M 30 10 Q 25 15 31 24" />
+    <path d="M 70 10 Q 76 15 69 24" />
+    
+    <!-- Cuerpo principal del calendario (líneas levemente combadas) -->
+    <path d="M 15 22 Q 50 18 85 24 Q 88 50 84 85 Q 50 89 16 85 Q 12 50 15 22 Z" />
+    
+    <!-- Línea divisoria del encabezado -->
+    <path d="M 16 40 Q 50 44 85 41" />
+    
+    <!-- Días marcados (simulación de garabatos rápidos) -->
+    <path d="M 30 55 L 34 58 M 50 54 L 55 57 M 70 56 L 73 54" />
+    <path d="M 29 70 L 33 69 M 51 72 L 55 69 M 69 70 L 74 73" />
+</svg>
