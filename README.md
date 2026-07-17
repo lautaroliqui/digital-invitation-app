@@ -20,5 +20,5 @@ Una Single Page Application (SPA) estática, liviana y responsiva desarrollada p
 Al ser un sitio completamente estático, no requiere un proceso de build.
 
 1. Clonar el repositorio:
-   \`git clone https://github.com/TU_USUARIO/invitacion-santy-18.git\`
+   \`git clone https://github.com/lautaroliqui/digital-invitation-app.git`
 2. Abrir \`index.html\` en cualquier navegador web moderno o servirlo mediante Live Server.
