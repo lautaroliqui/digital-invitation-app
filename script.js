@@ -1,6 +1,17 @@
+const bgMusic = document.getElementById("bg-music");
+const btnPlayPause = document.getElementById("btn-play-pause");
+const btnBackward = document.getElementById("btn-backward");
+const btnForward = document.getElementById("btn-forward");
+const btnStop = document.getElementById("btn-stop");
+const btnRestart = document.getElementById("btn-restart");
 const leavesContainer = document.getElementById("leaves-container");
+
 const leafIcons = ['🍂', '🍃', '🍁'];
 const totalLeaves = 15;
+let isPlaying = false;
+
+const svgPlay = `<svg viewBox="0 0 100 100" class="ctrl-icon"><path d="M 30 25 Q 75 45 80 50 Q 75 55 30 75 Q 25 50 30 25" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/></svg>`;
+const svgPause = `<svg viewBox="0 0 100 100" class="ctrl-icon" style="margin-left: 0;"><path d="M 35 25 Q 38 50 34 75 M 65 25 Q 61 50 66 75" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/></svg>`;
 
 for (let i = 0; i < totalLeaves; i++) {
     let leaf = document.createElement("div");
@@ -24,17 +35,14 @@ function toggleLeavesAnimation(play) {
     });
 }
 
-const bgMusic = document.getElementById("bg-music");
-const btnPlayPause = document.getElementById("btn-play-pause");
-const btnBackward = document.getElementById("btn-backward");
-const btnForward = document.getElementById("btn-forward");
-const btnStop = document.getElementById("btn-stop");
-const btnRestart = document.getElementById("btn-restart");
-
-let isPlaying = false;
-
-const svgPlay = `<svg viewBox="0 0 100 100" class="ctrl-icon"><path d="M 30 25 Q 75 45 80 50 Q 75 55 30 75 Q 25 50 30 25" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/></svg>`;
-const svgPause = `<svg viewBox="0 0 100 100" class="ctrl-icon" style="margin-left: 0;"><path d="M 35 25 Q 38 50 34 75 M 65 25 Q 61 50 66 75" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/></svg>`;
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden" && isPlaying) {
+        bgMusic.pause();
+        isPlaying = false;
+        btnPlayPause.innerHTML = svgPlay;
+        toggleLeavesAnimation(false);
+    }
+});
 
 btnPlayPause.addEventListener("click", function() {
     if (isPlaying) {
